@@ -15,5 +15,5 @@ score_df = pd.DataFrame([[1,50,80,70,'boy',1],
                          [14,50,50,50,'girl',3],
                          [15,89,67,77,'girl',3]],columns=['student_id','math_score','english_score','chinese_score','sex','class'])
 
-data= score_df.pivot(index='sex', 'class', 'student_id', columns='chinese_score', 'english_score', 'math_score')
-print(data)
+df = score_df.melt(id_vars=['sex','class','student_id'])
+df.pivot(index=['sex','class','student_id'],columns='variable',values='value')
